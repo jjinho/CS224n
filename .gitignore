@@ -1,0 +1,10 @@
+*~
+*.zip
+*.ipynb
+*.sh
+*.pdf
+*.txt
+*.pyc
+Assignment\ 01/utils
+Lecture*
+Midterm*

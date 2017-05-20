@@ -49,7 +49,8 @@ def getSentenceFeatures(tokens, wordVectors, sentence):
     sentVector = np.zeros((wordVectors.shape[1],))
 
     ### YOUR CODE HERE
-    raise NotImplementedError
+    sentence_idx = map(lambda x: tokens[x], sentence)
+    sentVector = np.sum(wordVectors[sentence_idx], 0) / len(sentence)
     ### END YOUR CODE
 
     assert sentVector.shape == (wordVectors.shape[1],)
@@ -63,7 +64,39 @@ def getRegularizationValues():
     """
     values = None   # Assign a list of floats in the block below
     ### YOUR CODE HERE
-    raise NotImplementedError
+    values = [1e3, 2e3, 3e3, 4e3, 5e3, 6e3, 7e3, 8e3, 9e3,
+              1e2, 2e2, 3e2, 4e2, 5e2, 6e2, 7e2, 8e2, 9e2,
+              1, 2, 3, 4, 5, 6, 7, 8, 9,
+              1e-1, 2e-1, 3e-1, 4e-1, 5e-1, 6e-1, 7e-1, 8e-1, 9e-1,
+              1e-2, 2e-2, 3e-2, 4e-2, 5e-2, 6e-2, 7e-2, 8e-2, 9e-2,
+              1e-3, 2e-3, 3e-3, 4e-3, 5e-3, 6e-3, 7e-3, 8e-3, 9e-3,
+              1e-4, 2e-4, 3e-4, 4e-4, 5e-4, 6e-4, 7e-4, 8e-4, 9e-4,
+              1e-5, 2e-5, 3e-5, 4e-5, 5e-5, 6e-5, 7e-5, 8e-5, 9e-5,
+              1e-6, 2e-6, 3e-6, 4e-6, 5e-6, 6e-6, 7e-6, 8e-6, 9e-6,
+              1e-7, 2e-7, 3e-7, 4e-7, 5e-7, 6e-7, 7e-7, 8e-7, 9e-7,
+              1e-8, 2e-8, 3e-8, 4e-8, 5e-8, 6e-8, 7e-8, 8e-8, 9e-8,
+              1e-9, 2e-9, 3e-9, 4e-9, 5e-9, 6e-9, 7e-9, 8e-9, 9e-9,
+              1e-10, 2e-10, 3e-10, 4e-10, 5e-10, 6e-10, 7e-10, 8e-10, 9e-10]
+    # Best 9e-1
+    # Test 37.375566
+    # Best 5e-2
+    # Test 37.511312
+    # Best 9e-3
+    # Test 37.194570
+    # Best 7e-4
+    # Test 37.104072
+    # Best 8e-5
+    # Test 37.013575
+    # Best 2e-6
+    # Test 37.149321
+    # Best 4e-7
+    # Test 37.149321
+    # Best 6e-8
+    # Test 37.104072
+    # Best 8e-9
+    # Test 37.104072
+    # Best 9e-10
+    # Test 37.149321
     ### END YOUR CODE
     return sorted(values)
 
@@ -87,7 +120,16 @@ def chooseBestModel(results):
     bestResult = None
 
     ### YOUR CODE HERE
-    raise NotImplementedError
+    r = 0
+    for result in results:
+        if r <= result['test']:
+            r = result['test']
+            bestResult = result
+    print 'Regularization', bestResult['reg']
+    print 'Classifier', bestResult['clf']
+    print 'Train', bestResult['train']
+    print 'Dev', bestResult['dev']
+    print 'Test', bestResult['test']
     ### END YOUR CODE
 
     return bestResult

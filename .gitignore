@@ -5,6 +5,12 @@
 *.pdf
 *.txt
 *.pyc
+*.swp
+*.idea
+*.npy
+*.png
 Assignment\ 01/utils
+Assignment\ 02/assignment2/data
+Assignment\ 02/assignment2/utils
 Lecture*
 Midterm*

@@ -9,8 +9,9 @@
 *.idea
 *.npy
 *.png
+*.xlsx
 Assignment\ 01/utils
-Assignment\ 02/assignment2/data
-Assignment\ 02/assignment2/utils
+Assignment\ 02/data
+Assignment\ 02/utils
 Lecture*
 Midterm*
